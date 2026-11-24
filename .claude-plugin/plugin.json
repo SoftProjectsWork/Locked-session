@@ -1,0 +1,19 @@
+{
+  "name": "locked-session",
+  "version": "0.1.0",
+  "description": "Keeps a long-running project's state in its own files: one next-session prompt per development topic, each with its own lock, plus stale-state checks, [V]/[?] marks and an end-of-session checklist. Creates any missing file by itself.",
+  "author": {
+    "name": "Raffaele Zinno"
+  },
+  "license": "MIT",
+  "keywords": [
+    "session",
+    "handoff",
+    "lock",
+    "project-state",
+    "git",
+    "next-session"
+  ],
+  "homepage": "https://github.com/SoftProjectsWork/locked-session",
+  "repository": "https://github.com/SoftProjectsWork/locked-session"
+}

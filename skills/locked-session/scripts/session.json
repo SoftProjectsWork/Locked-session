@@ -1,0 +1,121 @@
+{
+  "config": ".claude/locked-session.txt",
+  "templates": "templates",
+  "state": "Status:",
+  "tags": {
+    "lock": "[lock]",
+    "handoff": "[handoff]",
+    "index": "[index]",
+    "decisions": "[decisions]"
+  },
+  "words": {
+    "busy": "IN PROGRESS",
+    "wait": "WAITING",
+    "stop": "STOPPED"
+  },
+  "tz_key": "timezone",
+  "resume": "Resume when:",
+  "topic_key": "Topic:",
+  "marks": [
+    "<!-- topics:start -->",
+    "<!-- topics:end -->"
+  ],
+  "defaults": [
+    [
+      "docs/HANDOFF.md",
+      "handoff",
+      "when rules, permissions or conventions change"
+    ],
+    [
+      "NEXT_SESSION.md",
+      "index",
+      "every session: `session.py index`"
+    ],
+    [
+      "next_sessions/*.md",
+      "lock",
+      "every session, the file of the topic being worked on"
+    ],
+    [
+      "docs/DECISIONS.md",
+      "decisions",
+      "every user decision, with its date"
+    ],
+    [
+      "CHANGELOG.md",
+      null,
+      "every release or visible change"
+    ]
+  ],
+  "tpl": {
+    "handoff": "handoff.md",
+    "index": "index.md",
+    "lock": "topic.md",
+    "decisions": "decisions.md",
+    "CHANGELOG.md": "changelog.md"
+  },
+  "cmd": {
+    "setup": "setup",
+    "topic": "topic",
+    "index": "index",
+    "branches": "branches",
+    "stale": "stale",
+    "close": "close",
+    "take": "take"
+  },
+  "first_topic": "general",
+  "m": {
+    "created": "created   ",
+    "exists": "exists    ",
+    "missing": "missing   ",
+    "no_tpl": "(no template: create it by hand)",
+    "cfg_new": "Configuration created:",
+    "cfg_read": "Configuration:",
+    "next": "Next step: fill in {h} (project rules) and the prompt {p}.",
+    "topic_exists": "Topic already exists: {p}",
+    "no_topic": "No such topic: {p}",
+    "topic_bad": "Invalid name: use lowercase letters, digits and hyphens.",
+    "index_done": "Index updated: {n} topics in {p}",
+    "index_nomark": "{p}: placeholders {a} … {b} are missing",
+    "no_cfg": "{c} is missing: run `python3 session.py setup` first.",
+    "no_lock": "No [lock] file in {c}.",
+    "head_br": "Locks on branches (newest first):",
+    "busy": "IN PROGRESS: another session is working on this topic",
+    "mine": "IN PROGRESS on this branch (your session)",
+    "taken": "{p}: Status: {s}",
+    "none_br": "No branch in the period.",
+    "no_state": "(no Status: line with a date)",
+    "stale_ok": "up to date",
+    "stale_bad": "RECHECK: {n} commits after the state",
+    "stale_hint": "What this prompt says is [?] until you check it again.",
+    "close_head": "State documents compared with {b}:",
+    "changed": "CHANGED  ",
+    "todo": "to review",
+    "others": "Other changed files: {n}",
+    "date_old": "  ⚠ the file changed but the Status date did not",
+    "still_busy": "  ⚠ still IN PROGRESS: at the end of the session write WAITING or STOPPED with a new date and time",
+    "git_fail": "git cannot compare with {b}: {e}"
+  },
+  "config_head": [
+    "# State documents (locked-session skill). path [tag] | when to update it",
+    "# Tags: [handoff] rules · [index] list of topics · [lock] prompt of one topic (\"Status:\" line)",
+    "#       · [decisions] decision log. Globs allowed (next_sessions/*.md).",
+    "# timezone: Europe/Rome   ← remove the # to fix the time zone of the dates; without it, the computer's zone is used"
+  ],
+  "table_head": "| Topic | Status | Resume when | Prompt |",
+  "opt": {
+    "title": "--title",
+    "prefix": "--prefix",
+    "days": "--days",
+    "also": "--also",
+    "file": "--file",
+    "ref": "--ref",
+    "base": "--base"
+  },
+  "description": "Session state kept in the repository: set-up, per-topic locks, branch states, stale state, end-of-session checklist.",
+  "placeholders": {
+    "date": "date",
+    "topic": "topic",
+    "timezone": "timezone"
+  }
+}

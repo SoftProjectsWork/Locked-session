@@ -1,6 +1,6 @@
 # locked-session
 
-A Claude skill for projects that outlive a single conversation. The state of the work lives in the repository's own
+Locked-session skill for projects that outlive a single conversation. The state of the work lives in the repository's own
 files, not in the model's memory: every session reads it, checks that it is still true, locks the topic it works on,
 and leaves the state up to date for the next session.
 
